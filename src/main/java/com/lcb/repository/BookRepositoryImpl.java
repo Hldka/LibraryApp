@@ -25,7 +25,7 @@ public class BookRepositoryImpl implements BookRepository{
         session.close();
 
     }
-
+/*
     @Override
     public void loan(Books books) {
         Session session = sessionFactory.openSession();
@@ -37,7 +37,7 @@ public class BookRepositoryImpl implements BookRepository{
         session.close();
 
     }
-
+*/
     @Override
     public List<Books> getAll() {
         Session session = sessionFactory.openSession();
@@ -61,7 +61,7 @@ public class BookRepositoryImpl implements BookRepository{
         session.close();
         return optionalBooks;
     }
-
+/*
     @Override
     public Optional<List<Books>> findByPersonName(String borrowername) {
         Session session=sessionFactory.openSession();
@@ -73,7 +73,7 @@ public class BookRepositoryImpl implements BookRepository{
         session.close();
         return optionalBorrowerName;
     }
-
+*/
     @Override
     public void delete(Long id) {
         Session session=sessionFactory.openSession();

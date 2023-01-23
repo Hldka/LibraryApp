@@ -18,11 +18,9 @@ public class BookServiceImpl implements BookService{
 
     }
 
-    @Override
-    public void loanBooks(Books books) {
-        bookRepository.loan(books);
-
-    }
+   // @Override
+   // public void loanBooks(Books books) {
+   //     bookRepository.loan(books);}
 
     @Override
     public List<Books> getAllBooks() {
@@ -34,11 +32,11 @@ public class BookServiceImpl implements BookService{
         return bookRepository.findById(id).orElseThrow(()->new NoSuchIdException("There is no id  realetd with this quers "+id));
     }
 
-    @Override
-    public List<Books> findBooksByPersonName(String borrowername) {
-        return bookRepository.findByPersonName(borrowername).orElseThrow(()->
-                new NoSuchPersonalException("There is no id  realetd with this quers "+borrowername));
-    }
+   // @Override
+   // public List<Books> findBooksByPersonName(String borrowername) {
+     //   return bookRepository.findByPersonName(borrowername).orElseThrow(()->
+       //         new NoSuchPersonalException("There is no id  realetd with this quers "+borrowername));
+    //}
 
     @Override
     public void deleteBooks(Long id) {

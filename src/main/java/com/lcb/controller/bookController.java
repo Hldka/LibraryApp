@@ -10,51 +10,56 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
-@RequestMapping("/courses")
+@RequestMapping("/book")
 public class bookController {
     @Autowired
     private BookService bookService;
 
     @GetMapping("/form")
     public String showBooksForm(@ModelAttribute("books") Books books) {
-        return "courseForm";
+        return "bookForm";
 
     }
 
-    @PostMapping("/saveCourse")
+    @PostMapping("/saveBooks")
     public String createBook(@Valid @ModelAttribute Books books, BindingResult bindingResult){
 
         if(bindingResult.hasErrors()){
-            return "courseForm";
+            return "bookForm";
         }
 
         bookService.saveBooks(books);//saveOrUpdate
-        return "redirect:/courses";
+        return "redirect:/book";
     }
+
+
 
     @GetMapping
-    public ModelAndView getBooks(){
-        List<Books> courseList=bookService.getAllBooks();
+    public ModelAndView getAllBooks(){
+        List<Books> booksList=bookService.getAllBooks();
         ModelAndView mav=new ModelAndView();
-        mav.addObject("courses",courseList);
-        mav.setViewName("courses");
+        mav.addObject("book",booksList);
+        mav.setViewName("book");
         return mav;
     }
-
     @GetMapping("/update")
-    public String showUpdateForm(@RequestParam("id") Long id, Model model){
-        Books books=bookService.findBooksById(id);
-        model.addAttribute("course",books);
-        return "courseForm";
+    public String showLoanForm (@RequestParam("id") Long id, Model model){
+
+        Books books = bookService.findBooksById(id);
+        books.setCheckOutedDate(LocalDateTime.now());
+        books.setReturnDate(LocalDateTime.now().plusDays(15L));
+        model.addAttribute("book",books);
+        return "bookForm";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteBooks(@PathVariable("id") Long id){
         bookService.deleteBooks(id);
-        return "redirect:/courses";
+        return "redirect:/book";
     }
 
 

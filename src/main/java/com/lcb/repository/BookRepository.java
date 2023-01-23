@@ -9,12 +9,12 @@ public interface BookRepository  {
 
     void save(Books books);
 
-    void loan(Books books);
+  //  void loan(Books books);
 
     List<Books> getAll();
 
     Optional<Books> findById(Long id);
-    Optional<List<Books>> findByPersonName(String borrowername);
+ //   Optional<List<Books>> findByPersonName(String borrowername);
     void delete(Long id);
 
 

@@ -8,10 +8,10 @@ import java.util.Optional;
 public interface BookService {
     void saveBooks(Books books);
 
-    void loanBooks(Books books);
+  //  void loanBooks(Books books);
 
     List<Books> getAllBooks();
     Books findBooksById(Long id);
-    List<Books> findBooksByPersonName(String borrowername);
+   // List<Books> findBooksByPersonName(String borrowername);
     void deleteBooks(Long id);
 }

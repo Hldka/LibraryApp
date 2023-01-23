@@ -7,30 +7,30 @@
 <head>
 <%@ page isELIgnored="false" %>
 <meta charset="UTF-8">
-<title>Add Course</title>
+<title>Add Book</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css?version=1">
 </head>
 <body>
 	<div class="container">
 		<div align="center">
-			<h2>Add / Update Course</h2>
+			<h2>Add / Update Book</h2>
 			<table>
-				<form:form modelAttribute="course" action="saveCourse" method="post">
+				<form:form modelAttribute="book" action="saveBooks" method="post">
 					<form:hidden path="id" />
 					<tr>
-						<td class="courseprop">CourseName:</td>
-						<td><form:input path="coursename" size="30" /></td>
-						<td><form:errors path="coursename" class="error" /></td>
+						<td class="bookprop">BookName:</td>
+						<td><form:input path="bookName" size="30" /></td>
+						<td><form:errors path="bookName" class="error" /></td>
 					</tr>
 
 					<tr>
-						<td class="courseprop">Prefix:</td>
+						<td class="bookprop">Prefix:</td>
 						<td><form:input path="prefix" size="30" /></td>
 						<td><form:errors path="prefix" class="error" /></td>
 					</tr>
 
 					<tr>
-						<td class="courseprop">Code:</td>
+						<td class="bookprop">Code:</td>
 						<td><form:input path="code" size="30" /></td>
 						<td><form:errors path="code" class="error" /></td>
 					</tr>
